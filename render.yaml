@@ -6,6 +6,7 @@ services:
     branch: main
     buildContext: ./sweetnanny
     dockerfilePath: ./sweetnanny/Dockerfile
+    autoDeploy: true
     envVars:
       - key: APP_ENV
         value: production
@@ -13,7 +14,6 @@ services:
         value: false
       - key: FLASK_API_URL
         value: https://sweetnanny-api.onrender.com
-    autoDeploy: true
 
   - type: web
     name: sweetnanny-api
@@ -22,6 +22,7 @@ services:
     branch: main
     buildContext: ./api
     dockerfilePath: ./api/Dockerfile
+    autoDeploy: true
     envVars:
       - key: FLASK_ENV
         value: production
