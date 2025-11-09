@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: sweetnanny-laravel
+    env: docker
+    dockerfilePath: ./sweetnanny/Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        sync: false
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+
+  - type: web
+    name: sweetnanny-api
+    env: docker
+    dockerfilePath: ./api/Dockerfile
+    envVars:
+      - key: FLASK_ENV
+        value: production
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+
